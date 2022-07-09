@@ -13,7 +13,7 @@ const client = createClient({
 // generating static path from slug at buld time
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
-    content_type: "china",
+    content_type: "japan",
   });
 
   const paths = res.items.map((item) => {
@@ -31,7 +31,7 @@ export const getStaticPaths = async () => {
 
 export async function getStaticProps({ params }) {
   const { items } = await client.getEntries({
-    content_type: "china",
+    content_type: "japan",
     // limiting what we get from the CMS to the right content
     "fields.slug": params.slug,
   });

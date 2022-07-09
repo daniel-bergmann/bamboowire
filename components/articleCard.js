@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ArticleCard({ article }) {
+export default function ArticleCard({ article, country }) {
   const { headline, slug, thumbnail } = article.fields;
 
   return (
@@ -18,7 +18,7 @@ export default function ArticleCard({ article }) {
           <h4>{headline}</h4>
         </div>
         <div className="actions">
-          <Link href={`/articles/china/` + slug}>
+          <Link href={`/articles/${country}/` + slug}>
             <a>read</a>
           </Link>
         </div>

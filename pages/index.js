@@ -3,11 +3,26 @@ import { createClient } from "contentful";
 // components
 import ArticleCard from "../components/articleCard";
 
-export default function Home({ articles }) {
+export default function Home({ chinaArticles, japanArticles, koreaArticles }) {
   return (
     <>
-      {articles.map((article) => {
-        return <ArticleCard key={article.sys.id} article={article} />;
+      {/* China */}
+      {chinaArticles.map((article) => {
+        return (
+          <ArticleCard country="china" key={article.sys.id} article={article} />
+        );
+      })}
+      {/* Japan */}
+      {japanArticles.map((article) => {
+        return (
+          <ArticleCard country="japan" key={article.sys.id} article={article} />
+        );
+      })}
+      {/* Korea */}
+      {koreaArticles.map((article) => {
+        return (
+          <ArticleCard country="korea" key={article.sys.id} article={article} />
+        );
       })}
     </>
   );
@@ -20,11 +35,15 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
   // pass in the id of each content model as content_type in the getEntries function
-  const res = await client.getEntries({ content_type: "china" });
+  const chinaRes = await client.getEntries({ content_type: "china" });
+  const japanRes = await client.getEntries({ content_type: "japan" });
+  const koreaRes = await client.getEntries({ content_type: "korea" });
 
   return {
     props: {
-      articles: res.items,
+      chinaArticles: chinaRes.items,
+      japanArticles: japanRes.items,
+      koreaArticles: koreaRes.items,
     },
   };
 }
