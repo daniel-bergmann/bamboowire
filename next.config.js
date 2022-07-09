@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+// for the contentful images
+const imageOptimization = {
+  images: { domains: ["images.ctfassets.net"] },
+};
+
+module.exports = nextConfig && imageOptimization;
