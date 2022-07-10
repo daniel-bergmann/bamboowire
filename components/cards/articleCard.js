@@ -8,6 +8,7 @@ export default function ArticleCard({ article, country }) {
     <div className="card">
       <div className="thumbnail">
         <Image
+          alt={headline}
           src={"https:" + thumbnail.fields.file.url}
           width={thumbnail.fields.file.details.image.width}
           height={thumbnail.fields.file.details.image.height}

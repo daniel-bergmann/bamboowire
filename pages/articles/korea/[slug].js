@@ -2,7 +2,7 @@
 import { createClient } from "contentful";
 
 // components
-import SlugCard from "../../../components/slugCard";
+import SlugCard from "../../../components/cards/slugCard";
 
 // connecting to cloudinary client to access the data
 const client = createClient({

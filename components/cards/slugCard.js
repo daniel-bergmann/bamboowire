@@ -8,6 +8,7 @@ export default function slugCard({ article, headline, featuredImage }) {
     <article>
       <div>
         <Image
+          alt={headline}
           src={"https:" + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}

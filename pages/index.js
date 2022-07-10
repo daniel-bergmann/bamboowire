@@ -1,7 +1,7 @@
 // contentful
 import { createClient } from "contentful";
 // components
-import ArticleCard from "../components/articleCard";
+import ArticleCard from "../components/cards/articleCard";
 
 export default function Home({ chinaArticles, japanArticles, koreaArticles }) {
   return (
